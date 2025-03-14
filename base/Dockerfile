@@ -16,8 +16,11 @@ RUN dnf update -y && \
                    brotli compat-openssl11 && \
     dnf clean all
 
+# system module for python build
+RUN dnf -y install gcc openldap-devel
+
 # Python
-RUN dnf -y install python3.11 python3-devel python3-setuptools python3-pip nss_wrapper openldap-devel && \
+RUN dnf -y install python3.11 python3-devel python3-setuptools python3-pip nss_wrapper && \
     dnf -y clean all --enablerepo='*'
 RUN cd /usr/bin \
     && if [ ! -L python ]; then ln -s python3 python; fi \
