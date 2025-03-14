@@ -244,3 +244,4 @@ RUN \
 USER 10001
 
 ENV HOME=/home/user
+
