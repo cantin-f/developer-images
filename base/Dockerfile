@@ -20,20 +20,12 @@ RUN dnf update -y && \
 RUN dnf -y install gcc openldap-devel
 
 # Python
-RUN dnf -y install python3.11 python3-devel python3-setuptools python3-pip nss_wrapper && \
+RUN dnf -y install python3.12 python3.12-devel python3-setuptools python3-pip nss_wrapper && \
     dnf -y clean all --enablerepo='*'
 RUN cd /usr/bin \
     && if [ ! -L python ]; then ln -s python3 python; fi \
     && if [ ! -L pydoc ]; then ln -s pydoc3 pydoc; fi \
     && if [ ! -L python-config ]; then ln -s python3-config python-config; fi
-RUN pip install pylint yq
-
-## direnv
-RUN <<EOF
-DIRENV_VERSION=2.32.2
-curl -L https://github.com/direnv/direnv/releases/download/v${DIRENV_VERSION}/direnv.linux-amd64 -o /usr/bin/direnv
-chmod +x /usr/bin/direnv
-EOF
 
 ## Jfrog cli
 RUN <<EOF
