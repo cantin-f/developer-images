@@ -6,7 +6,7 @@ components:
     attributes:
        controller.devfile.io/merge-contribution: true
     container:
-      image: ghcr.io/cantin-f/developer-images:latest
+      image: ghcr.io/cantin-f/developer-images:main
       env:
         - name: DOCKER_HOST
           value: tcp://localhost:2375
