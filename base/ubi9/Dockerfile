@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.3-labs
 
 FROM quay.io/devfile/base-developer-image:ubi9-latest
-LABEL maintainer="disaster37"
+LABEL maintainer="cantin-f"
 
 ENV HOME=/home/tooling
 USER 0
